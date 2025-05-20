@@ -26,6 +26,7 @@ namespace TicTacToe
         }
         private void Jogada_Click(object sender, EventArgs e)
         {
+            // Obter as infos do botão que chamou esse evento:
             Button botaoClicado = (Button)sender;
             botaoClicado.Text = jogadaAtual;
             botaoClicado.Enabled = false;
@@ -107,6 +108,8 @@ namespace TicTacToe
                      * zzz
                      */
                     lblInfo.Text = $"O vencedor é {btn11.Text}";
+                    DesabilitarTudo();
+
                 }else if (btn21.Text == btn22.Text && btn22.Text == btn23.Text && btn21.Text != "")
                 {
                     /* zzz
@@ -114,6 +117,7 @@ namespace TicTacToe
                      * zzz
                      */
                     lblInfo.Text = $"O vencedor é {btn21.Text}";
+                    DesabilitarTudo();
                 }
                 else if (btn31.Text == btn32.Text && btn32.Text == btn33.Text && btn31.Text != "")
                 {
@@ -121,6 +125,7 @@ namespace TicTacToe
                      * zzz
                      * ---
                      */
+                    DesabilitarTudo();
                     lblInfo.Text = $"O vencedor é {btn31.Text}";
                 }
                 else if (btn11.Text == btn21.Text && btn21.Text == btn31.Text && btn11.Text != "")
@@ -129,6 +134,7 @@ namespace TicTacToe
                      * -zz
                      * -zz
                      */
+                    DesabilitarTudo();
                     lblInfo.Text = $"O vencedor é {btn11.Text}";
                 }
                 else if (btn12.Text == btn22.Text && btn22.Text == btn32.Text && btn12.Text != "")
@@ -138,6 +144,7 @@ namespace TicTacToe
                      * z-z
                      */
                     lblInfo.Text = $"O vencedor é {btn12.Text}";
+                    DesabilitarTudo();
                 }
                 else if (btn13.Text == btn23.Text && btn23.Text == btn33.Text && btn13.Text != "")
                 {
@@ -146,6 +153,7 @@ namespace TicTacToe
                      * zz-
                      */
                     lblInfo.Text = $"O vencedor é {btn13.Text}";
+                    DesabilitarTudo();
                 }
                 else if (btn11.Text == btn22.Text && btn22.Text == btn33.Text && btn11.Text != "")
                 {
@@ -154,6 +162,7 @@ namespace TicTacToe
                      * zz-
                      */
                     lblInfo.Text = $"O vencedor é {btn11.Text}";
+                    DesabilitarTudo();
                 }
                 else if (btn13.Text == btn22.Text && btn22.Text == btn31.Text && btn13.Text != "")
                 {
@@ -162,12 +171,27 @@ namespace TicTacToe
                      * -zz
                      */
                     lblInfo.Text = $"O vencedor é {btn13.Text}";
+                    DesabilitarTudo();
                 } // Verificar se deu "velha":
                 else if (!btn11.Enabled && !btn12.Enabled && !btn13.Enabled && !btn21.Enabled
                 && !btn22.Enabled && !btn23.Enabled && !btn31.Enabled && !btn32.Enabled && !btn33.Enabled)
                 {
                     lblInfo.Text = "Empate!";
                 }
+        }
+        public void DesabilitarTudo()
+        {
+            // Irá desabilitar todos os botões quando houver um vencedor.
+            // Para impedir que o jogo continue.
+            btn11.Enabled = false;
+            btn12.Enabled = false;
+            btn13.Enabled = false;
+            btn21.Enabled = false;
+            btn22.Enabled = false;
+            btn23.Enabled = false;
+            btn31.Enabled = false;
+            btn32.Enabled = false;
+            btn33.Enabled = false;
         }
     }
 }
